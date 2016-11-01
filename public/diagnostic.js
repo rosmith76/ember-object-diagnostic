@@ -23,3 +23,23 @@
 //  -  Order 1 : 2 hats ($5 each)
 //  -  Order 2 : 1 desk lamp ($20 each)
 //  -  Order 3 : 3 hand towels ($8 each)
+const Order = Ember.Object.extend({
+  orderPrice: Ember.computed('unitPrice', 'quantity', function(){
+   return `${this.get('unitPrice')} ${this.get('quantity')}`;
+ }),
+ });
+ let order1 = Order.create({
+   hats: [
+    Ember.Object.create({ unitPrice: 5, quantity: 2 }),
+   ]
+ });
+ let order2 = Order.create({
+   lamp: [
+    Ember.Object.create({ unitPrice: 20, quantity: 1 }),
+   ]
+ });
+ let order3 = Order.create({
+   towel: [
+    Ember.Object.create({ unitPrice: 8, quantity: 3 }),
+   ]
+ });
